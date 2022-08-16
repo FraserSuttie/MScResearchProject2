@@ -30,28 +30,20 @@ alleles_total <- c()
 for(i in 1:nrow(ra_snps)) {
   # store the details of the current SNP as "snp_det"
   snp_det <- str_split(ra_snps$VARIANT_ID[i], ":")[[1]]
-  
   # store the chromosome of the current SNP as "snp_chr"
   snp_chr <- snp_det[1]
-  
   # store the locus of the current SNP as "snp_loc"
   snp_loc <- snp_det[2]
-  
   # store the reference allele as "ref_all"
   ref_all <- snp_det[3]
-  
   # store the alternative allele as "alt_all"
   alt_all <- snp_det[4]
-  
   # paste the SNP chromosome and locus together to make "coord"
   coord <- paste("chr", snp_chr, ":", snp_loc, sep = "")
-  
   # add the current "coord" to "coord_total"
   coord_total <- append(coord_total, coord)
-  
   # paste the two refence and alternative alleles together to make "alleles"
   alleles <- paste("(", ref_all, "/", alt_all, ")", sep = "")
-  
   # add the current "alleles" to "alleles_total"
   alleles_total <- append(alleles_total, alleles)
 }
